@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mock Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #3498db;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+
+        #examTypeModal, #subjectModal, #topicModal, #oopButtons, #fdsButtons {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content, #oopButtons, #fdsButtons {
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .subject-button, .topic-button {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #3498db;
+        }
+
+        .subject-button:hover, .topic-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+    
+
+</head>
+<body>
+
+<div class="container">
+    <h1>Mock Test</h1>
+    <button class="button" onclick="showExamTypeModal()">Mock Test</button>
+
+    <div id="examTypeModal" class="modal">
+        <div class="modal-content">
+            <p>Select Exam Type:</p>
+            <div class="button-container">
+                <button class="button" onclick="showSubjectModal('Quiz')">Quiz</button>
+                <button class="button" onclick="showSubjectModal('Endsem')">Endsem</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="subjectModal" class="modal">
+        <div class="modal-content">
+            <p>Select Your Subject:</p>
+            <button class="subject-button" onclick="showOOPButtons()">OOPs</button>
+            <button class="subject-button" onclick="showFDSButtons()">FDS</button>
+        </div>
+    </div>
+
+    <div id="topicModal" class="modal">
+        <div class="modal-content">
+            <p>Select Topic:</p>
+            <!-- Updated options for FDS -->
+            <button class="topic-button" onclick="loadMockTest('Inheritance')">Inheritance</button>
+            <button class="topic-button" onclick="loadMockTest('Polymorphism')">Polymorphism</button>
+        </div>
+    </div>
+
+    <!-- OOPs Specific Buttons -->
+    <div id="oopButtons" class="modal">
+        <div class="modal-content">
+            <p>Select OOPs Subtopic:</p>
+            <button class="topic-button" onclick="loadMockTest('Inheritance')">Inheritance</button>
+            <button class="topic-button" onclick="loadMockTest('Polymorphism')">Polymorphism</button>
+        </div>
+    </div>
+
+    <!-- FDS Specific Buttons -->
+    <div id="fdsButtons" class="modal">
+        <div class="modal-content">
+            <p>Select FDS Subtopic:</p>
+            <button class="topic-button" onclick="loadMockTest('Machine Learning Basics')">Machine Learning Basics</button>
+            <button class="topic-button" onclick="loadMockTest('Basics of Numpy')">Basics of Numpy</button>
+        </div>
+    </div>
+
+    <!-- Space for questions - You can add your questions here -->
+
+</div>
+
+<script>
+    function showExamTypeModal() {
+        document.getElementById('examTypeModal').style.display = 'flex';
+    }
+
+    function showSubjectModal(examType) {
+        document.getElementById('examTypeModal').style.display = 'none';
+        document.getElementById('subjectModal').style.display = 'flex';
+        console.log('Selected Exam Type:', examType);
+    }
+
+    function showOOPButtons() {
+        document.getElementById('subjectModal').style.display = 'none';
+        document.getElementById('oopButtons').style.display = 'flex';
+    }
+
+    function showFDSButtons() {
+        document.getElementById('subjectModal').style.display = 'none';
+        document.getElementById('fdsButtons').style.display = 'flex';
+    }
+
+    function loadMockTest(topic) {
+        // Add your code to load questions for the selected topic
+        console.log('Selected Topic:', topic);
+    }
+
+    // Close modals if the overlay is clicked
+    window.onclick = function (event) {
+        if (event.target === document.getElementById('examTypeModal')) {
+            document.getElementById('examTypeModal').style.display = 'none';
+        }
+        if (event.target === document.getElementById('subjectModal')) {
+            document.getElementById('subjectModal').style.display = 'none';
+        }
+        if (event.target === document.getElementById('topicModal')) {
+            document.getElementById('topicModal').style.display = 'none';
+        }
+        if (event.target === document.getElementById('oopButtons')) {
+            document.getElementById('oopButtons').style.display = 'none';
+        }
+        if (event.target === document.getElementById('fdsButtons')) {
+            document.getElementById('fdsButtons').style.display = 'none';
+        }
+    };
+</script>
+<script>
+    function showExamTypeModal() {
+        document.getElementById('examTypeModal').style.display = 'flex';
+    }
+
+    function showSubjectModal(examType) {
+        document.getElementById('examTypeModal').style.display = 'none';
+        document.getElementById('subjectModal').style.display = 'flex';
+        console.log('Selected Exam Type:', examType);
+    }
+
+    function showOOPButtons() {
+        document.getElementById('subjectModal').style.display = 'none';
+        document.getElementById('oopButtons').style.display = 'flex';
+    }
+
+    function showFDSButtons() {
+        document.getElementById('subjectModal').style.display = 'none';
+        document.getElementById('fdsButtons').style.display = 'flex';
+    }
+
+    function loadMockTest(topic) {
+        console.log('Selected Topic:', topic);
+
+        switch (topic) {
+            case 'Inheritance':
+                window.location.href = 'yug.html';
+                break;
+            case 'Polymorphism':
+                window.location.href = 'yug1.html';  
+                break;
+            case 'Machine Learning Basics':
+                window.location.href = 'yug2.html';  
+                break;
+            case 'Basics of Numpy':
+                window.location.href = 'yug3.html';  
+                break;
+            default:
+                console.log('Invalid topic selected');
+        }
+    }
+
+    window.onclick = function (event) {
+        if (event.target === document.getElementById('examTypeModal')) {
+            document.getElementById('examTypeModal').style.display = 'none';
+        }
+        if (event.target === document.getElementById('subjectModal')) {
+            document.getElementById('subjectModal').style.display = 'none';
+        }
+        if (event.target === document.getElementById('topicModal')) {
+            document.getElementById('topicModal').style.display = 'none';
+        }
+        if (event.target === document.getElementById('oopButtons')) {
+            document.getElementById('oopButtons').style.display = 'none';
+        }
+        if (event.target === document.getElementById('fdsButtons')) {
+            document.getElementById('fdsButtons').style.display = 'none';
+        }
+    };
+</script>
+
+</body>
+</html>

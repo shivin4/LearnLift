@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href='https://fonts.googleapis.com/css?family=Quantico' rel='stylesheet'>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
+    <title>Dark Webpage</title>
+
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quantico', sans-serif;
+    background-color: #111;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-self: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#contentContainer {
+    text-align: center;
+}
+
+.button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+
+    </style>
+
+
+<script>
+    function showSubjects() {
+    hideAllContainers();
+    document.getElementById('subjectsContainer').classList.remove('hidden');
+}
+
+function showOOPs() {
+    hideAllContainers();
+    document.getElementById('OOPsContainer').classList.remove('hidden');
+}
+
+function showFDS() {
+    hideAllContainers();
+    document.getElementById('FDSContainer').classList.remove('hidden');
+}
+
+function showInheritance() {
+    showContent("Inheritance in C++", "The capability of a class to derive properties and characteristics from another class is called Inheritance. Inheritance is one of the most important features of Object-Oriented Programming...", "pic1.jpg");
+}
+
+function showPolymorphism() {
+    showContent("Polymorphism in C++", "The word “polymorphism” means having many forms. In simple words, we can define polymorphism as the ability of a message to be displayed in more than one form...", "pic2.jpg");
+}
+
+function showMachineLearning() {
+    showContent("Machine Learning", "Machine Learning tutorial covers basic and advanced concepts, specially designed to cater to both students and experienced working professionals...", "pic3.jpg");
+}
+
+function showNumPyBasics() {
+    showContent("NumPy Basics", "NumPy is a Python library used for working with arrays. It also has functions for working in domain of linear algebra, fourier transform, and matrices...", "pic4.jpg");
+}
+
+
+function showContent(heading, text) {
+    hideAllContainers();
+    document.getElementById('contentHeading').innerText = heading;
+    document.getElementById('contentText').innerText = text;
+    document.getElementById('contentContainer').classList.remove('hidden');
+}
+
+function hideAllContainers() {
+    document.getElementById('subjectsContainer').classList.add('hidden');
+    document.getElementById('OOPsContainer').classList.add('hidden');
+    document.getElementById('FDSContainer').classList.add('hidden');
+    document.getElementById('contentContainer').classList.add('hidden');
+}
+</script>
+</head>
+<body>
+    <button style="position: relative;text-align: center;justify-items: center; align-items: center;display:flex; flex-direction: column;" id="subjectsButton" onclick="showSubjects()">Subjects</button>
+
+    <div id="subjectsContainer" style="justify-content: center;" class="hidden">
+
+        <a class="cta-button">
+        
+        <button style="height:100px;width:200px;"  onclick="showOOPs()">Object Oriented Programming (OOPs)</button>
+        <button onclick="showFDS()">Fundamentals of Data Science (FDS)</button> </a>
+    
+    </div>
+
+    <div id="OOPsContainer" style="justify-content: center;align-items: center;" class="hidden">
+        <button onclick="showInheritance()">Inheritance</button>
+        <button onclick="showPolymorphism()">Polymorphism</button>
+    </div>
+
+    <div id="FDSContainer" style="justify-content: center;align-items: center;" class="hidden">
+        <button onclick="showMachineLearning()">Machine Learning</button>
+        <button onclick="showNumPyBasics()">NumPy Basics</button>
+    </div>
+
+    <div id="contentContainer" class="hidden">
+        <h1 id="contentHeading"></h1>
+        <p id="contentText"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

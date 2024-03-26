@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnLift</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        #openChat {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .chatbox {
+            width: 300px;
+            border: 1px solid #3498db;
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            background-color: #3498db;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+        }
+
+        #userInput {
+            padding: 10px;
+            border: 1px black;
+            border-radius: 0 0 5px 5px;
+            width: 100%;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 0 0 5px 5px;
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="loader">
+        <h1>LEARN</h1>
+        <h1>APPLY</h1>
+        <h1>TEST</h1>
+        <h1>REPEAT</h1>
+    </div>
+
+    <nav class="nav">
+        <div class="nav-logo">
+            <p>LearnLift .</p>
+        </div>
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="notes.html" class="link">Resources</a></li>
+                <li><a href="Final_Mocktest_Code.html" class="link">Mock</a></li>
+                <li><a href="#" class="link">About</a></li>
+            </ul>
+        </div>
+        <style>
+            .btn.white-btn {
+                padding: 15px 40px;
+                background: rgba(255, 255, 255, 0.7);
+            }
+        </style>
+        <div class="nav-button">
+            <a class="btn white-btn" id="loginBtn" href="login.html">Get Started</a>
+        </div>
+    </nav>
+
+    <div id="main"> 
+        <div id="page">
+            <h1>
+                <br>
+                "A platform
+                <br>
+                for all your college needs"</h1>
+            <canvas></canvas>
+        </div>
+        <div id="page2">
+
+        </div>
+        <div id="page1">
+            <h1>Not another <br>study tool required. </h1>
+            <h4>One step tool for all college needs.</h4>
+        </div>
+        <div id="page3"></div>
+        <div id="page4">
+              <video height="600" width="1000" src="./us.mp4" autoplay loop muted></video>
+          </div>    
+        <div id="page6">
+            <div class="left-page6">
+                <h1>Dashboard</h1>
+                <h4>"The dashboard is a user-friendly interface designed to provide convenient access to essential information and tools. It offers a seamless navigation experience with clear sections for subjects and courses. Users can easily explore various subjects, such as Object-Oriented Programming, Data Science, Mathematics, and Physics, each accompanied by relevant icons for quick identification. Additionally, the 'My Courses' section displays the user's ongoing courses, including their progress percentages. With intuitive design and functional components, this dashboard ensures efficient management of educational resources and progress tracking for learners."</h4>
+            </div>
+            <div class="right-page6">
+                <img src="./dashboard1.png" alt="">
+            </div>
+        </div>
+        <div id="page7">
+            <div class="right-page7">
+                <img src="./mock.png" alt="">
+            </div>
+            <div class="left-page7">
+                <h1>Resources</h1>
+                <h4>The resources menu serves as a comprehensive hub for accessing essential educational materials and tools. It provides quick and convenient access to a variety of resources such as notes, tests, and additional study materials. Users can navigate through different categories to find relevant resources for their academic needs. Whether seeking lecture notes, practice tests, or supplementary materials, the resources menu aims to facilitate efficient learning and academic success for students and educators alike.</h4>
+            </div>
+        </div>
+        <div id="page8">
+            <div class="left-page8">
+                <h1>Mock</h1>
+                <h4>Prepare for success with our mock test portal. Simulate real exam conditions, assess your knowledge, and track your progress effortlessly. Get instant feedback and tailor your study approach effectively. Your path to academic excellence starts here!</h4>
+            </div>
+            <div class="right-page8">
+                <img src="./mock.jpg" alt="">
+            </div>
+        </div>
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <h1>LearnLift</h1>
+            </div>
+          <!--   <div class="footer-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#page4" target="_main">About Us</a></li>
+                    <li><a href="shivin2004@gmail.com">Contact</a></li>
+                </ul>
+            </div> -->
+    </footer>
+
+   
+    <div class="chat-container">
+        <button id="openChat" onclick="openChat()">Chat with Chatbot</button>
+        <div id="chatbox" class="chatbox hidden">
+            <div class="chat-header">Chatbot</div>
+            <div id="chat-messages" class="chat-messages"></div>
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- Include JavaScript files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+        integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"
+        integrity="sha512-AMl4wfwAmDM1lsQvVBBRHYENn1FR8cfOTpt8QVbb/P55mYOdahHD4LmHM1W55pNe3j/3od8ELzPf/8eNkkjISQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        function openChat() {
+            document.getElementById('chatbox').classList.remove('hidden');
+            displayMessage("Hey, How can I help you?");
+            displayMessage("1. Notes");
+            displayMessage("2. Help");
+            displayMessage("3. Contact administrator");
+            displayMessage("4. Find resources");
+        }
+
+        function sendMessage() {
+            var userInput = document.getElementById('userInput').value;
+            displayUserMessage(userInput);
+
+            // Simulating Python backend logic
+            setTimeout(function () {
+                handleUserChoice(userInput);
+            }, 500);
+        }
+
+        function handleUserChoice(choice) {
+            if (choice === "1" || choice.toLowerCase() === "notes") {
+                displayMessage("Select a subject: ");
+                displayMessage("1. Fundamentals of Data Science (FDS)");
+                displayMessage("2. Object Oriented Programming using C++ (OOPs)");
+            } else if (choice === "2" || choice.toLowerCase() === "help") {
+                displayMessage("1. Notes not loading");
+                displayMessage("2. Resources link not working");
+                displayMessage("3. Could not find topic");
+                displayMessage("4. Others");
+            } else if (choice === "3" || choice.toLowerCase() === "contact administrator") {
+                displayMessage("Please provide your phone number or email for contact:");
+            } else if (choice === "4" || choice.toLowerCase() === "find resources") {
+                displayMessage("Select a subject: ");
+                displayMessage("1. Fundamentals of Data Science (FDS)");
+                displayMessage("2. Object Oriented Programming using C++ (OOPs)");
+            } else {
+                displayMessage("Invalid choice. Please try again.");
+            }
+        }
+
+        function displayMessage(message) {
+            var chatMessages = document.getElementById('chat-messages');
+            var chatMessage = document.createElement('div');
+            chatMessage.className = 'chat-message';
+            chatMessage.textContent = message;
+            chatMessages.appendChild(chatMessage);
+        }
+
+        function displayUserMessage(message) {
+            var chatMessages = document.getElementById('chat-messages');
+            var userMessage = document.createElement('div');
+            userMessage.className = 'user-message';
+            userMessage.textContent = message;
+            chatMessages.appendChild(userMessage);
+        }
+    </script>
+</body>
+</html>
